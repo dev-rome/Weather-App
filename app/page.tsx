@@ -14,8 +14,8 @@ export default function Home() {
 
   const handleSubmit = async (city: string) => {
     const weatherKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
-    const currentUrl = `http://api.weatherbit.io/v2.0/current?key=${weatherKey}&city=${city}`;
-    const dailyUrl = `http://api.weatherbit.io/v2.0/forecast/daily?key=${weatherKey}&city=${city}`;
+    const currentUrl = `https://api.weatherbit.io/v2.0/current?key=${weatherKey}&city=${city}`;
+    const dailyUrl = `https://api.weatherbit.io/v2.0/forecast/daily?key=${weatherKey}&city=${city}`;
     try {
       const currentRes = await fetch(currentUrl);
       const currentResults: WeatherData = await currentRes.json();
