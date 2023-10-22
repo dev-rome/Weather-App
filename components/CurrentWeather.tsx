@@ -30,7 +30,7 @@ const CurrentWeather = ({ data }: WeatherDisplayProps) => {
           height={65}
         />
         <div className="flex items-center">
-          <p className="text-6xl font-bold">{data?.data[0].temp}</p>
+          <p className="text-6xl font-bold">{data?.data[0].temp.toFixed()}</p>
           <span className="self-start font-bold text-xl">°C</span>
         </div>
       </div>
