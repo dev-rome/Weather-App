@@ -28,7 +28,7 @@ const DailyForecastItem = ({
 
 const DailyForecast = ({ data }: DailyForecastProps) => {
   return (
-    <div className="grid grid-cols-5 gap-4 mt-9">
+    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 mt-9">
       {data.data.map((item, index) => (
         <DailyForecastItem
           key={index}

@@ -5,7 +5,7 @@ import { getDayOfTheWeek } from "@/utils/dateUtils";
 
 const CurrentWeather = ({ data }: WeatherDisplayProps) => {
   return (
-    <div className="flex justify-between items-center mt-10">
+    <div className="md:flex md:justify-between items-center mt-10">
       <div className="flex flex-col gap-1">
         <h1 className="text-4xl font-bold">{data?.data[0].city_name}</h1>
         <p className="text-[#adb5bd]">
@@ -18,7 +18,7 @@ const CurrentWeather = ({ data }: WeatherDisplayProps) => {
           {data?.data[0].wind_spd.toFixed(1)}km/h
         </p>
       </div>
-      <div className="flex items-center gap-1">
+      <div className="flex justify-center items-center gap-1 mt-10 md:mt-0">
         <Image
           src={`/icons/${data?.data[0].weather.icon}.png`}
           alt="weather icon"
