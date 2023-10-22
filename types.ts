@@ -27,17 +27,21 @@ export interface DailyForecastData {
   }[];
 }
 
-export interface WeatherDisplayProps {
-  data: WeatherData; // Pass the data as a prop to the component
-}
-
-export interface DailyForecastProps {
-  data: DailyForecastData;
-}
-
 export interface DailyForecastItemProps {
   date: string;
   maxTemp: number;
   minTemp: number;
   icon: string;
+}
+
+export interface SearchFormProps {
+  onSubmit: (city: string) => void;
+}
+
+export interface WeatherDisplayProps {
+  data: WeatherData;
+}
+
+export interface DailyForecastProps {
+  data: DailyForecastData;
 }
