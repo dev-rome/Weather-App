@@ -1,14 +1,9 @@
 import Image from "next/image";
 
-import { WeatherDisplayProps } from "@/types";  
+import { WeatherDisplayProps } from "@/types";
+import { getDayOfTheWeek } from "@/utils/dateUtils";
 
 const CurrentWeather = ({ data }: WeatherDisplayProps) => {
-
-  const getDayOfTheWeek = (day: string) => {
-    const date = new Date(day);
-    return date.toLocaleDateString("en-US", { weekday: "long" });
-  };
-
   return (
     <div className="flex justify-between items-center mt-10">
       <div className="flex flex-col gap-1">
@@ -19,7 +14,8 @@ const CurrentWeather = ({ data }: WeatherDisplayProps) => {
           {data?.data[0].weather.description}
         </p>
         <p className="text-[#adb5bd]">
-          Humidity: {data?.data[0].rh}%, Wind: {data?.data[0].wind_spd.toFixed(1)}km/h
+          Humidity: {data?.data[0].rh}%, Wind:{" "}
+          {data?.data[0].wind_spd.toFixed(1)}km/h
         </p>
       </div>
       <div className="flex items-center gap-1">
