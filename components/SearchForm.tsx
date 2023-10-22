@@ -1,10 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-interface SearchFormProps {
-  onSubmit: (city: string) => void;
-}
+import { SearchFormProps } from "@/types"
 
 const SearchForm = ({ onSubmit }: SearchFormProps) => {
   const [city, setCity] = useState<string>("");
@@ -27,7 +24,7 @@ const SearchForm = ({ onSubmit }: SearchFormProps) => {
         onChange={(e) => setCity(e.target.value)}
       />
       <button
-        className="bg-[#5c7cfa] text-[#f8f9fa] font-bold rounded-md px-10 py-2"
+        className="bg-[#5c7cfa] text-[#f8f9fa] font-bold rounded-md px-4 py-2"
         type="submit"
       >
         Search
