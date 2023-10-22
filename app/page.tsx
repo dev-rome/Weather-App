@@ -2,21 +2,28 @@
 
 import { useState } from "react";
 import { TiWeatherCloudy } from "react-icons/ti";
-import { WeatherData } from "@/types";
+import { WeatherData, DailyForecastData } from "@/types";
 
 import SearchForm from "@/components/SearchForm";
 import CurrentWeather from "@/components/CurrentWeather";
+import DailyForecast from "@/components/DailyForecast";
 
 export default function Home() {
-  const [data, setData] = useState<WeatherData | null>(null);
+  const [currentData, setCurrentData] = useState<WeatherData | null>(null);
+  const [dailyData, setDailyData] = useState<DailyForecastData | null>(null);
 
   const handleSubmit = async (city: string) => {
     const weatherKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
-    const url = `http://api.weatherbit.io/v2.0/current?key=${weatherKey}&city=${city}`;
+    const currentUrl = `http://api.weatherbit.io/v2.0/current?key=${weatherKey}&city=${city}`;
+    const dailyUrl = `http://api.weatherbit.io/v2.0/forecast/daily?key=${weatherKey}&city=${city}`;
     try {
-      const res = await fetch(url);
-      const results: WeatherData = await res.json();
-      setData(results);
+      const currentRes = await fetch(currentUrl);
+      const currentResults: WeatherData = await currentRes.json();
+      setCurrentData(currentResults);
+
+      const dailyRes = await fetch(dailyUrl);
+      const dailyResults: DailyForecastData = await dailyRes.json();
+      setDailyData(dailyResults);
     } catch (error) {
       throw new Error("Failed to fetch data.");
     }
@@ -30,8 +37,11 @@ export default function Home() {
           <p className="text-xl font-bold">Weather App</p>
         </div>
         <SearchForm onSubmit={handleSubmit} />
-        {data ? (
-          <CurrentWeather data={data} />
+        {currentData && dailyData ? (
+          <>
+            <CurrentWeather data={currentData} />
+            <DailyForecast data={dailyData} />
+          </>
         ) : (
           <div className="text-center mt-20">
             <p>
