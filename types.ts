@@ -34,3 +34,10 @@ export interface WeatherDisplayProps {
 export interface DailyForecastProps {
   data: DailyForecastData;
 }
+
+export interface DailyForecastItemProps {
+  date: string;
+  maxTemp: number;
+  minTemp: number;
+  icon: string;
+}
