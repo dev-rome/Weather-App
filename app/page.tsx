@@ -30,7 +30,7 @@ export default function Home() {
   };
 
   return (
-    <section className="bg-[#edf2ff] h-screen flex justify-center px-4 py-12">
+    <section className="flex justify-center items-center px-4 py-12">
       <div className="bg-[#fff] max-w-3xl mx-auto w-full rounded-md p-10">
         <div className="flex gap-2 items-center">
           <TiWeatherCloudy className="text-3xl" />
@@ -45,7 +45,7 @@ export default function Home() {
         ) : (
           <div className="text-center mt-20">
             <p>
-              Enter a city and click the search button to see its current
+              Enter a city and click the search button to see the current
               weather.
             </p>
           </div>
