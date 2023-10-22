@@ -20,7 +20,7 @@ const SearchForm = ({ onSubmit }: SearchFormProps) => {
       className="flex gap-4 border-b-[1px] border-b-[#f1f3f5] pb-8 mt-10"
     >
       <input
-        className="bg-[#f1f3f5] outline-[#5c7cfa] max-w-4xl w-full px-5 py-3"
+        className="bg-[#edf2ff] outline-[#5c7cfa] max-w-4xl w-full px-5 py-3"
         type="text"
         placeholder="Enter a city..."
         value={city}
